@@ -76,7 +76,7 @@ stage('SonarQube Analysis') {
                     sh '''
                         mvn sonar:sonar -Dsonar.projectKey=webgoat \
                                         -Dsonar.host.url=$SONARQUBE_URL \
-                                        -Dsonar.login=$SONARQUBE_TOKEN
+                                        -Dsonar.token=$SONARQUBE_TOKEN
                     '''
                 }
             }
