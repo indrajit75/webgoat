@@ -46,7 +46,17 @@ steps {
 git url: 'https://github.com/indrajit75/webgoat.git', branch: 'main'
 }
 }
-
+node {
+  stage('SCM') {
+    checkout scm
+  }
+  stage('SonarQube Analysis') {
+    def mvn = tool 'Default Maven';
+    withSonarQubeEnv() {
+      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=webgoat -Dsonar.projectName='webgoat'"
+    }
+  }
+}
 stage('Build') {
 steps {
 // Run Maven to build the JAR file
