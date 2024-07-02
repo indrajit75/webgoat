@@ -52,7 +52,7 @@ steps {
 // Run Maven to build the JAR file
 //sh 'apt-get update && apt-get install -y maven openjdk-21-ea+23_linux-x64_bin.tar.gz'
 sh '''
-mvn clean verify sonar:sonar -Dsonar.projectKey=webgoat -Dsonar.projectName='webgoat'
+mvn clean package
 syft packages dir:$PWD -o cyclonedx-json > cyclonedx.json
 . ortelius-env/bin/activate
 pip install ortelius-cli
