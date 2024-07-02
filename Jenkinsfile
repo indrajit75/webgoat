@@ -57,6 +57,8 @@ syft packages dir:$PWD -o cyclonedx-json > cyclonedx.json
 . ortelius-env/bin/activate
 pip install ortelius-cli
 dh updatecomp --dhurl http://192.168.48.129 --dhuser admin --dhpass admin --rsp component.toml --deppkg "cyclonedx@cyclonedx.json"
+jq -n --arg app "GLOBAL.MedImpact Healthcare Systems Inc.DevSecOps.WebGoat;1_0_0" --arg env "GLOBAL.MedImpact Healthcare Systems Inc.DevSecOps.Development" '{application: $app, environment: $env,  skipdeploy: "Y", rc: 0 }' > deploy.json
+dh deploy --dhurl http://192.168.48.129 --dhuser admin --dhpass admin --logdeployment --deploydata deploy.json --appautoinc N
 deactivate
 '''
 }
