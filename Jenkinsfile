@@ -46,23 +46,13 @@ steps {
 git url: 'https://github.com/indrajit75/webgoat.git', branch: 'main'
 }
 }
-node {
-  stage('SCM') {
-    checkout scm
-  }
-  stage('SonarQube Analysis') {
-    def mvn = tool 'Default Maven';
-    withSonarQubeEnv() {
-      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=webgoat -Dsonar.projectName='webgoat'"
-    }
-  }
-}
+
 stage('Build') {
 steps {
 // Run Maven to build the JAR file
 //sh 'apt-get update && apt-get install -y maven openjdk-21-ea+23_linux-x64_bin.tar.gz'
 sh '''
-mvn clean package
+mvn clean verify sonar:sonar -Dsonar.projectKey=webgoat -Dsonar.projectName='webgoat'
 syft packages dir:$PWD -o cyclonedx-json > cyclonedx.json
 . ortelius-env/bin/activate
 pip install ortelius-cli
