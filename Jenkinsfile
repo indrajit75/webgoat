@@ -43,7 +43,7 @@ stage('Setup') {
 stage('Checkout') {
 steps {
 // Checkout the code from the version control system
-git url: 'https://indrajitchauhan1@bitbucket.org/indrajit75/webgoat.git', branch: 'main'
+git url: 'https://github.com/indrajit75/webgoat.git', branch: 'main'
 }
 }
 
