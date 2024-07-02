@@ -64,6 +64,24 @@ deactivate
 }
 }
 
+stage('SonarQube Analysis') {
+            environment {
+                // Set up SonarQube environment variables
+                SONARQUBE_URL = 'http://sonarqube.devsecopslab.com:9000'
+                SONARQUBE_TOKEN = 'sqp_58654163ae3e61cf1c304fc3167264922f93dec8'
+            }
+            steps {
+                script {
+                    // Run SonarQube scanner
+                    sh '''
+                        mvn sonar:sonar -Dsonar.projectKey=webgoat \
+                                        -Dsonar.host.url=$SONARQUBE_URL \
+                                        -Dsonar.login=$SONARQUBE_TOKEN
+                    '''
+                }
+            }
+        }
+    
 stage('Archive') {
 steps {
 // Archive the JAR file as a build artifact
