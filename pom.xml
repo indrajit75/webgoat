@@ -125,7 +125,7 @@
     <jaxb.version>2.3.1</jaxb.version>
     <jetty.version>11.0.18</jetty.version>
     <jjwt.version>0.9.1</jjwt.version>
-    <jose4j.version>0.9.3</jose4j.version>
+    <jose4j.version>0.9.4</jose4j.version>
     <jquery.version>3.7.1</jquery.version>
     <jsoup.version>1.17.2</jsoup.version>
     <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
@@ -149,7 +149,7 @@
     <webwolf.context>/</webwolf.context>
     <wiremock.version>3.6.0</wiremock.version>
     <xml-resolver.version>1.2</xml-resolver.version>
-    <xstream.version>1.4.5</xstream.version>
+    <xstream.version>1.4.20</xstream.version>
     <!-- do not update necessary for lesson -->
     <zxcvbn.version>1.9.0</zxcvbn.version>
   </properties>
@@ -168,7 +168,6 @@
         <artifactId>asm</artifactId>
         <version>9.7</version>
       </dependency>
-
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-exec</artifactId>
@@ -452,6 +451,11 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-properties-migrator</artifactId>
       <scope>runtime</scope>
+    </dependency>
+    <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>1.2.17</version>
     </dependency>
   </dependencies>
 
