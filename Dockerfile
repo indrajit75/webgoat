@@ -1,5 +1,5 @@
 FROM docker.io/eclipse-temurin:21.0.3_9-jre
-LABEL NAME = "WebGoat: A deliberately insecure Web Applications"
+LABEL NAME = "WebGoat: A deliberately insecure Web Applicationsss"
 LABEL maintainer = "WebGoat team"
 
 RUN \
